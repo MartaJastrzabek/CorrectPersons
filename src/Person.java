@@ -7,7 +7,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String lastName, int age, String pesel) {
+    public Person(String firstName, String lastName, int age, String pesel) throws NameUndefeinedException, IncorrectAgeException {
         check(firstName, lastName, age);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,7 +15,7 @@ public class Person {
         this.pesel = pesel;
     }
 
-    private void check(String firstName, String lastName, int age) {
+    private void check(String firstName, String lastName, int age) throws NameUndefeinedException, IncorrectAgeException {
         if(firstName == null || firstName.length()<2){
             throw new NameUndefeinedException("Imię");
         } else if(lastName==null || lastName.length()<2) {
